@@ -1,0 +1,208 @@
+{
+    "Arad" : {
+        "nodes" : 
+            {
+                "Zerind":75,
+                "Timisoara":118,
+                "Sibiu":140
+            }
+        ,
+        "straight-line"     : 366
+    },
+    "Bucharest" : {
+        "nodes" : 
+        
+            {
+                "Fagaras":211,
+                "Pitesti":101,
+                "Giurgiu":90,
+                "Urziceni":85
+            }
+        ,
+        "straight-line":0
+    },
+    "Craiova" : {
+        "nodes" : 
+        
+            {
+                "Dobreta":120,
+                "Rimnicu Vilcea":146,
+                "Pitesti":139
+            }
+        ,
+        "straight-line":160
+    },
+    "Dobreta" : {
+        "nodes" : 
+        
+            {
+                "Mehadia":75,
+                "Craiova":120
+            }
+        ,
+        "straight-line":242
+    },
+    "Eforie" : {
+        "nodes" : 
+        
+            {
+                "Hirsova":86
+            }
+        ,
+        "straight-line":161
+    },
+    "Fagaras" : {
+        "nodes" : 
+        
+            {
+                "Sibiu":99,
+                "Bucharest":211
+            }
+        ,
+        "straight-line":176
+    },
+    "Giurgiu" : {
+        "nodes":
+        
+            {
+                "Bucharest":90
+            }
+        ,
+        "straight-line":77
+        
+    },
+    "Hirsova" : {
+        "nodes" : 
+        
+            {
+                "Urziceni":98,
+                "Eforie":86
+            }
+        ,
+        "straight-line":151
+        
+    },
+    "Iasi" : {
+        "nodes" : 
+            {
+                "Neamt":87,
+                "Vaslui":92
+            }
+        ,
+        "straight-line":226
+    },
+    "Lugoj" : {
+        "nodes" : 
+        
+            {
+                "Timisoara":111,
+                "Mehadia":70
+            }
+        ,
+        "straight-line":244
+    },
+    "Mehadia" : {
+        "nodes" : 
+        
+            {
+                "Dobreta":75,
+                "Lugoj":70
+            }
+        ,
+        "straight-line":241
+    },
+    "Neamt" : {
+        "nodes" : 
+        
+            {
+                "Iasi":87
+            }
+        ,
+        "straight-line":234
+    },
+    "Oradea" : {
+        "nodes" : 
+        
+            {
+                "Zerind":71,
+                "Sibiu":151
+            }
+        ,
+        "straight-line":380
+    },
+    "Pitesti" : {
+        "nodes" : 
+        
+            {
+                "Rimnicu Vilcea":97,
+                "Bucharest":101,
+                "Craiova":138
+            }
+        ,
+        "straight-line":101
+    },
+    "Rimnicu Vilcea" : {
+        "nodes" : 
+        
+            {
+                "Pitesti":97,
+                "Sibiu":80,
+                "Craiova":146
+            }
+        ,
+        "straight-line":193
+    },
+    "Sibiu" : {
+        "nodes" : 
+        
+            {
+                "Arad":140,
+                "Fagaras":99,
+                "Rimnicu Vilcea":80,
+                "Oradea":151
+            }
+        ,
+        "straight-line":253
+    },
+    "Timisoara" : {
+        "nodes" : 
+        
+            {
+                "Arad":118,
+                "Lugoj":111
+            }
+        ,
+        "straight-line":329
+    },
+    "Urziceni" : {
+        "nodes": 
+        
+            {
+                "Bucharest":85,
+                "Hirsova":98,
+                "Vaslui":142
+            }
+        ,
+        "straight-line":80
+    },
+    "Vaslui" : {
+        "nodes" : 
+        
+            {
+                "Iasi":92,
+                "Urziceni":142
+            }
+        ,
+        "straight-line":199
+    },
+    "Zerind" : {
+        "nodes" : 
+        
+            {
+                "Arad":75,
+                "Oredea":71
+            }
+        ,
+        "straight-line":374
+    }
+}

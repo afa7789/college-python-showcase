@@ -1,0 +1,37 @@
+sistema imunologico.
+pode fazer com partes do genetico.
+observações:
+mesma função que do de genetico de f6(x,y), não é a melhor função para o problema para visualizar em 3d.
+
+multimodal ( encontrar varios bons e não apenas o melhor de todos,um conjunto de picos que vai ser encontrado).
+
+monomodal = B*N/i = numero de clones para cada índividuo , vai clonar muito o cara bom e pouco o cara ruim. o bom posição 1 = b * 100/1 = 100b , o ruim posição 10  = b*100/100 =b  . i=(posição no rank). 
+dps pega os 100 melhores de todos os clones (rankeia os clones em conjunto não por grupo de clones) e isso acaba entregando o pico.
+
+
+diversidade= exemplo, 10% dos escolhidos vão ser trocados por 10% das amostras escolhidos de forma aleatoria. 
+
+etapas:
+-criação da população: (cromossomos no genetico,individuos) temos anticorpos nesse caso.  X,Y na função que usaremos. gerando aleatorio também. (N índividuos a serem criados)
+Beta.
+Nc =Beta*N; (numero de clones a gerar)
+
+-clonagem:  Não vai ter cruzamento.  criar um vetor com Nc elementos que todo mundo vale o mesmo valor escolhido. (tinha 100 vai ter 1000) 
+
+dmax = maior,melhor de todo mundo, d é os valores do índividuo.
+-mutação: calcular a taxa de mutação, (ver se vai mutar ou não).
+		  era valor aleatorio e ve se confore com a taxa. 
+		  muta os valores assim como no genetico, (random.gaussiano +1 )*valor anterior de x e y para cada um dos 10 clones de cada grupos de clones.
+		  
+-taxa mutação = e ^(-p*d/dmax); (z/zmax) >>> melhor interpretação. (resultado de f6).
+	o p podemos mudar para ver comportamento e diferença nas mutações.
+
+-escolha: após ter mutado todo mundo, terá X = (Nc *N ) índíviduos, vai selecionar o melhor de cada um dos 10 melhores de cada grupo de clones e vai resultar em um número igual ao da população inicial.
+
+-diversidade: Apenas no monomodal. 10% dos escolhidos vão ser trocados por 10% das amostras escolhidos de forma aleatoria. 
+
+tem q plotar por cima :(
+o gŕafico de minimo medio e maximo serve para o monomodal.
+
+https://stackoverflow.com/questions/24707441/plot-points-over-contour-matplotlib-python
+
