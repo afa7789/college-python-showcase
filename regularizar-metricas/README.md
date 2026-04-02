@@ -1,14 +1,57 @@
-# Regularizar & Metricas de regressão logistica
+# Regularização e Métricas — Regressão Logística Avançada
 
-Recomendo instalação, desse Extensão e usar no visual studio , ao ínvez do jupyter notebook.
- -  https://marketplace.visualstudio.com/items?itemName=ms-python.python
+Extensão da prática de regressão logística, desenvolvida em conjunto com Jonathan Henrique. O foco é comparar diferentes tipos de regularização (L1 e L2) e avaliar os modelos com métricas completas de classificação.
 
-Prática p/ materia de inteligencia computacional, em conjunto com o Jonathan Henrique, essa prática é uma extensão da anterior, https://github.com/afa7789/regressaologistica. E o foco dela é em entender melhor e tentar fazer o uso de metricas e diferentes solvers p/ regressão logística.
+Repositório anterior: [regressaologistica](https://github.com/afa7789/regressaologistica)
 
-Pode-se também rodar com jupyter notebook.
+## O que o projeto faz
 
-	- $`sudo apt install jupyter-core`
-	- $`git clone https://github.com/afa7789/regularizar-metricas`
-	- $`cd regularizar-metricas`
-	- $`jupyter notebook` abre jupyter notebook na pasta em que deu git clone	
+Usando o mesmo dataset de atividade humana com smartphones, o notebook:
 
+1. Treina três modelos: sem regularização, L1 e L2
+2. Compara os coeficientes dos modelos visualmente
+3. Aplica seleção de features por variância (`VarianceThreshold`)
+4. Testa diferentes solvers (lbfgs, newton-cg)
+5. Calcula e compara métricas detalhadas entre todos os modelos
+
+## Arquivos principais
+
+| Arquivo | Descrição |
+|---|---|
+| `Regressao_Logistica_V2.ipynb` | Notebook com análise completa |
+| `regressao_logistica_v2.py` | Código Python extraído do notebook |
+| `Human_Activity_Recognition_Using_Smartphones_Data.csv` | Dataset com ~10.000 registros e 562 colunas |
+
+## Algoritmo
+
+1. Pré-processamento idêntico ao V1 (LabelEncoder + StratifiedShuffleSplit)
+2. Treinamento de três modelos com `LogisticRegressionCV`:
+   - `lr`: sem regularização explícita
+   - `lr_l1`: regularização L1 (solver liblinear)
+   - `lr_l2`: regularização L2 (solver lbfgs)
+3. Comparação visual dos coeficientes por classe
+4. Seleção de features com `VarianceThreshold(threshold=0.21)`
+5. Retreino com features reduzidas e solver newton-cg
+6. Métricas calculadas: precisão, recall, F-score, acurácia e AUC-ROC
+7. Matrizes de confusão plotadas com heatmap
+
+## Como executar
+
+```bash
+# Instale as dependências
+pip install pandas numpy scikit-learn matplotlib seaborn
+
+# Execute com o CSV na mesma pasta
+python regressao_logistica_v2.py
+```
+
+Ou abra o notebook:
+
+```bash
+jupyter notebook Regressao_Logistica_V2.ipynb
+```
+
+## Dependências
+
+- Python 3.x
+- pandas, numpy, scikit-learn, matplotlib, seaborn

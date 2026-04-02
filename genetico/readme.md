@@ -1,63 +1,48 @@
-https://www.pybonacci.org/2012/04/13/dibujando-lineas-de-nivel-en-python-con-matplotlib/
+# Algoritmo Genético — Otimização da Função f6(x, y)
 
-https://www.python-course.eu/matplotlib_contour_plot.php
+## O que é
 
-https://plot.ly/python/dot-plots/
+Implementação de um algoritmo genético para maximizar a função de benchmark **f6(x, y)**:
 
+```
+f6(x,y) = 0.5 - ( sin(√(x²+y²))² - 0.5 ) / ( 1 + 0.001·(x²+y²) )²
+```
 
-Agradecimento ao mito do rodrigo borges pela parte do codigo abaixo: 
--sem ele não seria possível fazer as plotagens
+O domínio de busca é `[-10, 10]` para ambas as variáveis.
 
+## Arquivos
 
-import plotly.plotly as py
-import plotly.offline as pyo
-import plotly.graph_objs as go
-pyo.init_notebook_mode()
+| Arquivo | Descrição |
+|---|---|
+| `Genetico.ipynb` | Notebook original com visualizações interativas (Plotly) |
+| `Genetico.py` | Código Python extraído, executável diretamente |
 
+## Visão geral do algoritmo
 
-def f(x):
-  
-  squared = x[0]*x[0] + x[1]*x[1]
-  sin = np.sin(np.sqrt(squared))
-  denominator = 1 + 0.001*squared
-  
-  return 0.5 - (sin*sin - 0.5) / (denominator*denominator)
+1. **Inicialização** — população de 1000 indivíduos com valores aleatórios em `[-10, 10]`
+2. **Avaliação (fitness)** — calcula f6(x, y) para cada indivíduo
+3. **Seleção** — roleta ponderada pelo somatório acumulado do fitness
+4. **Cruzamento** — crossover aritmético com taxa de 70% e fator alpha aleatório
+5. **Mutação** — perturbação gaussiana truncada com taxa de 20% e desvio padrão 3
+6. **Iteração** — repete por 100 gerações
 
+A cada geração são registrados o maior, a média e o menor valor de fitness da população.
 
-def calculate_z_matrix(X, Y, f):
-  
-  Z = np.zeros((len(X),len(Y)))
-  for i, x in enumerate(X):
-    for j, y in enumerate(Y):
-      Z[i][j] = f([x,y])
-  
-  return Z
+## Como executar
 
+```bash
+# Instalar dependências
+pip install numpy plotly
 
-def create_contour_tracer(X, Y, f):
-  
-  Z = calculate_z_matrix(X, Y, f)
-  
-  contour_tracer = dict(
-    type='contour',
-    x=X, y=Y,
-    z=Z,
-    colorscale='Reds',
-    showlegend=False)
-  
-  return contour_tracer
+# Rodar o script
+python Genetico.py
+```
 
+O script imprime os valores de fitness da geração final e salva o gráfico de evolução em `fitness_evolution.html`.
 
-X_range = [-10, 10]
-Y_range = [-10, 10]
+Para visualizar o notebook com os gráficos interativos:
 
-X = np.linspace(*X_range, 101)
-Y = np.linspace(*Y_range, 101)
-
-tracers = []
-
-contour_tracer = create_contour_tracer(X, Y, f)
-tracers.append(contour_tracer)
-
-figure = go.Figure(data=tracers)
-pyo.iplot(figure)
+```bash
+pip install jupyter plotly
+jupyter notebook Genetico.ipynb
+```
